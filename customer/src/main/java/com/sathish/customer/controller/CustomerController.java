@@ -61,21 +61,23 @@ public class CustomerController {
 		}
 	}
 
-	/*
-	 * @DeleteMapping("/customer/deleteID/{id}") public ResponseEntity<String>
-	 * DeletecustByID(@PathVariable("id") Long id) {
-	 * 
-	 * try { customerService.delCustByID(id); return new
-	 * ResponseEntity<>("User deleted sucessfully", HttpStatus.OK); } catch
-	 * (Exception e) { return new ResponseEntity<>(null,
-	 * HttpStatus.INTERNAL_SERVER_ERROR); } }
-	 */
-
-	@PutMapping("/customer/update/{id}")
-	public ResponseEntity<ResponseDto> updateCustomer(@PathVariable long id,@RequestBody UpdateRequestDto updateRequestDto) {
+	@DeleteMapping("/customer/deleteID/{id}")
+	public ResponseEntity<String> DeletecustByID(@PathVariable("id") Long id) {
 
 		try {
-			ResponseDto updatecustomer = customerService.updateCust(id,updateRequestDto);
+			customerService.delCustByID(id);
+			return new ResponseEntity<>("User deleted sucessfully", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PutMapping("/customer/update/{id}")
+	public ResponseEntity<ResponseDto> updateCustomer(@PathVariable long id,
+			@RequestBody UpdateRequestDto updateRequestDto) {
+
+		try {
+			ResponseDto updatecustomer = customerService.updateCust(id, updateRequestDto);
 			return new ResponseEntity<>(updatecustomer, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
