@@ -61,16 +61,15 @@ public class CustomerController {
 		}
 	}
 
-	@DeleteMapping("/customer/deleteID/{id}")
-	public ResponseEntity<String> DeletecustByID(@PathVariable("id") Long id) {
-
-		try {
-			customerService.delCustByID(id);
-			return new ResponseEntity<>("User deleted sucessfully", HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+	/*
+	 * @DeleteMapping("/customer/deleteID/{id}") public ResponseEntity<String>
+	 * DeletecustByID(@PathVariable("id") Long id) {
+	 * 
+	 * try { customerService.delCustByID(id); return new
+	 * ResponseEntity<>("User deleted sucessfully", HttpStatus.OK); } catch
+	 * (Exception e) { return new ResponseEntity<>(null,
+	 * HttpStatus.INTERNAL_SERVER_ERROR); } }
+	 */
 
 	@PutMapping("/customer/update/{id}")
 	public ResponseEntity<ResponseDto> updateCustomer(@PathVariable long id,@RequestBody UpdateRequestDto updateRequestDto) {

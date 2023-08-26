@@ -37,11 +37,13 @@ public class CustomerService {
 		return custbyID.isPresent() ? custbyID.get() : null;
 	}
 
-	public void delCustByID(Long id) {
-
-		customerRepo.deleteById(id);
-
-	}
+	/*
+	 * public void delCustByID(Long id) {
+	 * 
+	 * customerRepo.deleteById(id);
+	 * 
+	 * }
+	 */
 
 	public ResponseDto updateCust(Long id, UpdateRequestDto updateRequestDto) {
 
