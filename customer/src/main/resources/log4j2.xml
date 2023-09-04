@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="RequestID:[%X{transactionId}] %d{yyyy-MMM-dd HH:mm:ss.SSS} %thread [%X{trace-id}] [%t] %-5level %-50c{1.} - %msg %n" />
+		</Console>
+		<File name="LogToFile" fileName="logs/app.log">
+			<PatternLayout
+				Pattern="RequestID:[%X{transactionId}] %d{yyyy-MMM-dd HH:mm:ss.SSS} %thread [%X{trace-id}] [%t] %-5level %-50c{1.} - %msg %n"/>
+			
+		</File>
+	</Appenders>
+	<Loggers>
+		
+		<Root level="INFO">
+			<AppenderRef ref="LogToFile" />
+			<AppenderRef ref="Console" />
+		</Root>
+		
+	</Loggers>
+</Configuration>
